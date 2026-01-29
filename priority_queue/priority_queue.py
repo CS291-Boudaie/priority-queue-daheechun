@@ -51,13 +51,31 @@ class MinHeap:
 
     def peek(self):
         # TODO: Return (priority, item) but do NOT remove
+            # look at most important thing (smallest priority - index 0) but DONT take out
         # If empty, return None (or raise an error)
-        pass
 
+        if len(self) == 0:
+            return None
+        else:
+            return self.data[0]
+        
     def add(self, priority, item):
         # TODO: Add (priority, item) to end of list
         # Then bubble it UP into correct position
-        pass
+      
+        # left child index = 2*i + 1
+        # right child index = 2*i + 2
+        # parent index = (i - 1) // 2
+
+        self.data.append((priority, item)) #put in the end of list
+        index = len(self.data)-1 # location of new element - normally len() adds one - almost forgot!
+        
+        while index > 0:
+            parent = (index -1)//2
+           
+            if self.data[0] < parent.priority:
+                index = parent
+        
 
     def pop_min(self):
         # TODO: Remove and return the smallest element (priority, item)

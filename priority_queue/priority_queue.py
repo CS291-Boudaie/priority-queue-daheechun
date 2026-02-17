@@ -54,18 +54,12 @@ class MinHeap:
             # look at most important thing (smallest priority - index 0) but DONT take out
         # If empty, return None (or raise an error)
 
-        if len(self) == 0:
+        if self.is_empty():
             return None
-        else:
-            return self.data[0]
+        priority, item = self.data[0]
+        return (item, priority)
         
     def add(self, priority, item):
-        # TODO: Add (priority, item) to end of list
-        # Then bubble it UP into correct position
-        # left child index = 2*i + 1
-        # right child index = 2*i + 2
-        # parent index = (i - 1) // 2
-
         self.data.append((priority, item))
         index = len(self.data) - 1
 

@@ -56,8 +56,7 @@ class MinHeap:
 
         if self.is_empty():
             return None
-        priority, item = self.data[0]
-        return (item, priority)
+        return self.data[0]
         
     def add(self, priority, item):
         self.data.append((priority, item))
@@ -85,7 +84,7 @@ class MinHeap:
         # if jsut one, just pop + return
         if len(self.data) == 1:
             priority, item = self.data.pop()
-            return (item, priority)
+            return (priority, item)
         
         # 1) swap
         self.data[0], self.data[-1] = self.data[-1], self.data[0]
@@ -97,7 +96,7 @@ class MinHeap:
         self._bubble_down(0)
 
 
-        return (item, priority)
+        return (priority, item)
 
     def _bubble_up(self, idx):
         # TODO: Implement
